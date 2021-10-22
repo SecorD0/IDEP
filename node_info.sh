@@ -67,8 +67,8 @@ if [ "$language" = "RU" ]; then
 	t_sy1="Нода синхронизирована:        ${C_LR}нет${RES}"
 	t_sy2="Осталось нагнать:             ${C_LR}%d-%d=%d (около %.2f мин.)${RES}"
 	t_sy3="Нода синхронизирована:        ${C_LGn}да${RES}"
-	t_del="Делегировано токенов на ноду: ${C_LGn}%.7f${RES} ${token_name}"
-	t_vp="Весомость голоса:             ${C_LGn}%.5f${RES}\n"
+	t_del="Делегировано токенов на ноду: ${C_LGn}%.3f${RES} ${token_name}"
+	t_vp="Весомость голоса:             ${C_LGn}%.3f${RES}\n"
 	t_wa="Адрес кошелька:               ${C_LGn}%s${RES}"
 	t_bal="Баланс:                       ${C_LGn}%.3f${RES} ${token_name}\n"
 # Send Pull request with new texts to add a language - https://github.com/SecorD0/KiChain/blob/main/node_info.sh
@@ -90,8 +90,8 @@ else
 	t_sy1="The node is synchronized:      ${C_LR}no${RES}"
 	t_sy2="It remains to catch up:        ${C_LR}%d-%d=%d (about %.2f min.)${RES}"
 	t_sy3="The node is synchronized:      ${C_LGn}yes${RES}"
-	t_del="Delegated tokens to the node:  ${C_LGn}%.7f${RES} ${token_name}"
-	t_vp="Voting power:                  ${C_LGn}%.5f${RES}\n"
+	t_del="Delegated tokens to the node:  ${C_LGn}%.3f${RES} ${token_name}"
+	t_vp="Voting power:                  ${C_LGn}%.3f${RES}\n"
 	t_wa="Wallet address:                ${C_LGn}%s${RES}"
 	t_bal="Balance:                       ${C_LGn}%.3f${RES} ${token_name}\n"
 fi
