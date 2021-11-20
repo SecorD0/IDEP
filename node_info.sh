@@ -6,7 +6,7 @@ node_dir="$HOME/.ion/"
 wallet_name="$idep_wallet_name"
 wallet_address="$idep_wallet_address"
 wallet_address_variable="idep_wallet_address"
-global_rpc=""
+global_rpc="http://167.86.106.133:26657/"
 explorer_url_template=""
 
 # Default variables
@@ -145,10 +145,10 @@ main() {
 	if [ -n "$validator_address" ]; then local explorer_url="${explorer_url_template}${validator_address}"; fi
 	local validator_pub_key=`$daemon tendermint show-validator`
 	local jailed=`jq -r ".jailed" <<< $node_info`
-	local delegated=`bc -l <<< "$(jq -r ".tokens" <<< $node_info)/1000000000000000000" 2>/dev/null`
+	local delegated=`bc -l <<< "$(jq -r ".tokens" <<< $node_info)" 2>/dev/null`
 	local voting_power=`jq -r ".ValidatorInfo.VotingPower" <<< $status`
 	if [ -n "$wallet_address" ]; then
-		local balance=`bc -l <<< "$($daemon query bank balances "$wallet_address" -o json --node "$local_rpc" | jq -r ".balances[0].amount")/1000000000000000000"`
+		local balance=`bc -l <<< "$($daemon query bank balances "$wallet_address" -o json --node "$local_rpc" | jq -r ".balances[0].amount")"`
 	fi
 
 	# Output
