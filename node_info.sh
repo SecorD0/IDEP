@@ -6,7 +6,7 @@ node_dir="$HOME/.ion/"
 wallet_name="$idep_wallet_name"
 wallet_address="$idep_wallet_address"
 wallet_address_variable="idep_wallet_address"
-global_rpc="http://167.86.106.133:26657/"
+global_rpc="http://75.119.133.206:26657/"
 explorer_url_template=""
 
 # Default variables
@@ -117,6 +117,7 @@ main() {
 	
 	# Actions
 	sudo apt install bc -y &>/dev/null
+	if [ -n "$NICKNAME" ]; then local wallet_name="$UMEE_WALLET"; fi
 	if [ -n "$wallet_name" ] && [ ! -n "$wallet_address" ]; then
 		printf_n "$t_ewa"
 		local wallet_address=`$daemon keys show "$wallet_name" -a`
