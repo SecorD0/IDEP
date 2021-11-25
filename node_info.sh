@@ -117,7 +117,7 @@ main() {
 	
 	# Actions
 	sudo apt install bc -y &>/dev/null
-	if [ -n "$NICKNAME" ]; then local wallet_name="$UMEE_WALLET"; fi
+	if [ -n "$NICKNAME" ]; then local wallet_name="$NICKNAME"; fi
 	if [ -n "$wallet_name" ] && [ ! -n "$wallet_address" ]; then
 		printf_n "$t_ewa"
 		local wallet_address=`$daemon keys show "$wallet_name" -a`
