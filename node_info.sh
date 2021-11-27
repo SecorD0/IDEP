@@ -7,7 +7,7 @@ wallet_name="$idep_wallet_name"
 wallet_address="$idep_wallet_address"
 wallet_address_variable="idep_wallet_address"
 global_rpc="http://75.119.133.206:26657/"
-explorer_url_template=""
+explorer_url_template="https://idep.thecodes.dev/validator/"
 
 # Default variables
 language="EN"
@@ -143,7 +143,7 @@ main() {
 	local catching_up=`jq -r ".SyncInfo.catching_up" <<< $status`
 	
 	local validator_address=`jq -r ".operator_address" <<< $node_info`
-	#if [ -n "$validator_address" ]; then local explorer_url="${explorer_url_template}${validator_address}"; fi
+	if [ -n "$validator_address" ]; then local explorer_url="${explorer_url_template}${validator_address}"; fi
 	local validator_pub_key=`$daemon tendermint show-validator`
 	local jailed=`jq -r ".jailed" <<< $node_info`
 	local delegated=`bc -l <<< "$(jq -r ".tokens" <<< $node_info)" 2>/dev/null`
